@@ -1,0 +1,47 @@
+; fixed function GLES 1.1 vertex path, everything already in floats.
+; Inputs, output order and full-register writes are laid out like citro2d's shader,
+; which is known to run on real hardware.
+
+.fvec mvp[4]
+.fvec texmtx0[2], texmtx1[2]
+
+.constf consts(1.0, 0.0, 0.00392156863, 0.0)
+.alias one consts.xxxx
+.alias inv255 consts.zzzz
+
+.out outpos position
+.out outtc0 texcoord0
+.out outtc1 texcoord1
+.out outclr color
+
+.alias inpos v0
+.alias intc0 v1
+.alias intc1 v2
+.alias inclr v3
+
+.proc main
+	mov r0.xyz, inpos
+	mov r0.w, one
+
+	dp4 outpos.x, mvp[0], r0
+	dp4 outpos.y, mvp[1], r0
+	dp4 outpos.z, mvp[2], r0
+	dp4 outpos.w, mvp[3], r0
+
+	; (s, t, 0, 1) through the texture matrix
+	mov r1.xy, intc0
+	mov r1.zw, consts.yyyx
+	dp4 r2.x, texmtx0[0], r1
+	dp4 r2.y, texmtx0[1], r1
+	mov r2.zw, consts.yyyx
+	mov outtc0, r2
+
+	mov r1.xy, intc1
+	dp4 r2.x, texmtx1[0], r1
+	dp4 r2.y, texmtx1[1], r1
+	mov outtc1, r2
+
+	mul outclr, inv255, inclr
+
+	end
+.end
