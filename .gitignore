@@ -1,0 +1,17 @@
+build/
+*.cia
+*.elf
+*.smdh
+*.icn
+*.bnr
+*.map
+tools/bin/
+
+# game files, never commit these
+*.apk
+*.s3e
+*.dz
+*.icf
+!port.icf
+*.i3d
+work/
