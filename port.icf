@@ -1,0 +1,29 @@
+# Copy next to biohazard.s3e on the SD card (sdmc:/reDe/).
+[PORT]
+# 84cba: 3D defaults to off on a fresh save so the game draws each frame once.
+#        It can still be turned on from Options.
+# 84cb0: default language English. For Spanish use 84cb2:a154 instead.
+Patch=84cba:00210432a154,84cb0:a1540421
+TextureRGB565=1
+Mipmaps=1
+
+# Menus: d-pad / circle pad move the highlight, A selects, B back,
+#        L / R page left / right, X skip.
+# Gameplay: circle pad / d-pad move, hold R to aim the gun, hold L for the
+#           knife, A shoots or slashes with whatever is out and opens doors /
+#           uses things otherwise, Y puts the weapon away, X, SELECT or START
+#           phone, B bottom right icon. START + SELECT together quits.
+# Where the other buttons press on the game's 480x320 layout:
+HudX=32:32
+HudB=455:300
+HudSelect=32:32
+HudStart=32:32
+# 0 shows the phone's on-screen buttons again.
+HideTouchHud=1
+# The phone's touch icons go to the bottom screen, tap them there.
+# 0 puts them back on top and shows the debug console below instead.
+BottomScreen=1
+# Textures never drawn, by hash. a9544533 is the stray signal icon.
+HideTextures=a9544533
+
+# Perf=1 logs fps and timings once a second, Trace=1 logs calls and touches.
