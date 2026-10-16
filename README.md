@@ -9,9 +9,11 @@ original ARM code; everything under it (the Airplay system layer, OpenGL ES, sou
 rewritten for the 3DS.
 
 > [!IMPORTANT]
-> **No game files are included here or in the release.** You need your own copy of the Android
-> version of the game (the `.apk`).
-
+> **No game files are included here or in the release.** You must provide your own copy of the Android version.
+>
+> For compatibility, the port has been tested with the **Sharp Galapagos SoftBank 003SH / 005SH exclusive version**, commonly identified as `Resident Evil Degeneration Android iOS Port Sharp Galapagos Softbank 003SH 005SH Exclusive Fix.apk`.
+>
+> Other versions may not work correctly. The required game assets must be obtained and extracted from a copy you are legally entitled to use.
 
 ## Download & Install
 
